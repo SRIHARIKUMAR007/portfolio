@@ -23,7 +23,7 @@ export default function Projects() {
         "Developed an intelligent traffic management system using OpenFlow-SDN for real-time vehicle monitoring and traffic optimization. Integrated Automatic Number Plate Recognition (ANPR) to identify and track vehicles, achieving 95% detection accuracy with optimized response times.",
       image: "/images/anpr-dashboard.png",
       technologies: ["Python", "OpenFlow", "SDN", "ANPR", "AI", "Real-time Processing"],
-      github: "https://github.com/SRIHARIKUMAR007/anprcc",
+      github: "https://github.com/SRIHARIKUMAR007/OpenFlow-SDN-Integrated-ANPR-Traffic-Intelligence-System",
       live: null,
       period: "Apr 2025 - Jun 2025",
       featured: true,

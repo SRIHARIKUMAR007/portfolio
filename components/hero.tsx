@@ -135,7 +135,7 @@ export default function Hero() {
               </Button3D>
               <Button3D className="bg-white/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 px-6 py-3 rounded-lg">
                 <a
-                  href="https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

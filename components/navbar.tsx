@@ -132,7 +132,7 @@ export default function Navbar() {
               size="sm"
               onClick={() =>
                 window.open(
-                  "https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=sharing",
+                  "https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=drive_link",
                   "_blank",
                 )
               }
@@ -254,7 +254,7 @@ export default function Navbar() {
                   size="sm"
                   onClick={() => {
                     window.open(
-                      "https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=sharing",
+                      "https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=drive_link",
                       "_blank",
                     )
                     setMobileMenuOpen(false)
