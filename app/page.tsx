@@ -11,10 +11,11 @@ import Certifications from "@/components/certifications"
 import Awards from "@/components/awards"
 import Volunteering from "@/components/volunteering"
 import ConferencesWorkshops from "@/components/conferences-workshops"
+import Publications from "@/components/publications"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 dark:from-slate-900 dark:via-cyan-900 dark:to-blue-900 relative overflow-hidden">
       <Navbar />
       <Hero />
       <About />
@@ -24,8 +25,9 @@ export default function Home() {
       <Skills />
       <Certifications />
       <Awards />
-      <Volunteering />
+      <Publications />
       <ConferencesWorkshops />
+      <Volunteering />
       <Contact />
       <Footer />
     </main>
