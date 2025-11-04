@@ -8,16 +8,6 @@ import { CodeIcon, DatabaseIcon, LightbulbIcon } from "lucide-react"
 import { FloatingElement } from "./enhanced-animations"
 import { TiltCard, Rotate3D } from "./3d-effects"
 
-const Updated = "Updated skills to include Flask, Stock Market Analysis, and better categorization"
-const skills = ["Python", "HTML", "CSS", "JavaScript", "Java", "Flask", "Stock Market Analysis"]
-const Flask = "Flask"
-const Stock = "Stock"
-const Market = "Market"
-const Analysis = "Analysis"
-const and = "and"
-const better = "better"
-const categorization = "categorization"
-
 export default function Skills() {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -33,18 +23,12 @@ export default function Skills() {
     {
       name: "Frameworks & Tools",
       icon: <DatabaseIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["Flask", "DBMS", "MySQL", "MS Office 365", "NumPy", "scikit-learn"],
+      skills: ["Flask", "NumPy", "scikit-learn", "Matplotlib", "DBMS", "MySQL", "MS Office 365"],
     },
     {
       name: "Specializations",
       icon: <LightbulbIcon className="h-6 w-6 text-emerald-600" />,
-      skills: [
-        "Artificial Intelligence",
-        "Machine Learning",
-        "Deep Learning",
-        "Data Analysis",
-        "Stock Market Analysis",
-      ],
+      skills: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "Data Mining", "Stock Market Analysis"],
     },
   ]
 

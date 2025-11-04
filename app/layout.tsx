@@ -6,7 +6,7 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sri Hari Kumar S - Portfolio",
+  title: "Sri Hari Kumar S",
   description: "Innovative IT undergraduate specializing in AI, machine learning, and data analytics",
     generator: 'v0.app'
 }
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" className="dark">
       <body className={inter.className}>{children}</body>
     </html>
   )

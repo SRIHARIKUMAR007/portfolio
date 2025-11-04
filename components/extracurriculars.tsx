@@ -67,7 +67,7 @@ export default function Extracurriculars() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" id="extracurriculars">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-br from-teal-400/10 to-cyan-500/10 rounded-full blur-3xl"

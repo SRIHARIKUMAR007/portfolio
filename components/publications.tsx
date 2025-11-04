@@ -88,7 +88,7 @@ export default function Publications() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" id="publications">
       {/* Enhanced animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

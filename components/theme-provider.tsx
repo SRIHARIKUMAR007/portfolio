@@ -1,8 +1,19 @@
 "use client"
 
-import type React from "react"
+import * as React from "react"
+import { ThemeProvider as NextThemesProvider } from "next-themes"
+import type { ThemeProviderProps } from "next-themes"
 
-// Removed unused theme provider - using direct dark class on html element instead
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <>{children}</>
+  }
+
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
 }
