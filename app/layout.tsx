@@ -1,15 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import type { Metadata } from "next"
 
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata: Metadata = {
-  title: "Sri Hari Kumar S",
-  description: "Innovative IT undergraduate specializing in AI, machine learning, and data analytics",
-    generator: 'v0.app'
-}
 
 export default function RootLayout({
   children,
@@ -25,3 +17,7 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const metadata = {
+      generator: 'v0.app'
+    };
