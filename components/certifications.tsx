@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { AwardIcon, CalendarIcon, ExternalLinkIcon } from "lucide-react"
+import { AwardIcon, CalendarIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function Certifications() {
@@ -20,6 +20,13 @@ export default function Certifications() {
         "Completed NPTEL Certification in Python for Data Science, gaining foundational and practical skills in data analysis, visualization, and machine learning using Python.",
     },
     {
+      title: "Introduction to Generative AI",
+      issuer: "Google",
+      date: "July 2023",
+      description:
+        'Completed "Introduction to Generative AI" by Google, gaining foundational knowledge of generative AI concepts, tools, and applications.',
+    },
+    {
       title: "Computer Organization and Architecture",
       issuer: "Udemy",
       date: "September 2023",
@@ -31,15 +38,21 @@ export default function Certifications() {
       issuer: "Google",
       date: "August 2023",
       description:
-        'Completed "Crash Course on Python" by Google, acquiring essential Python programming skills for problem-solving and application development.',
+        'Completed "Crash Course on Python" by Google on Coursera, acquiring essential Python programming skills for problem-solving and application development.',
     },
     {
-      title: "Introduction to Generative AI",
-      issuer: "Google",
-      date: "July 2022",
+      title: "AI Tools Workshop",
+      issuer: "Be10x",
+      date: "December 2024",
       description:
-        'Completed "Introduction to Generative AI" by Google, gaining foundational knowledge of generative AI concepts, tools, and applications.',
-      proofLink: "https://drive.google.com/file/d/1Ck-fV85PPSYFJeEAGKrwd9RsPrnNCYK8/view?usp=drivesdk",
+        "Attended AI Tools Workshop by Be10x, gaining hands-on exposure to popular AI tools for productivity, automation, and content generation.",
+    },
+    {
+      title: "AI Excel Automation",
+      issuer: "OfficeMasters",
+      date: "December 2024",
+      description:
+        "Attended AI Automation in Excel Workshop, learning techniques to integrate AI-driven tools and automation features for enhanced data analysis, reporting, and productivity in Excel.",
     },
   ]
 
@@ -59,7 +72,7 @@ export default function Certifications() {
   }
 
   return (
-    <section id="certifications" className="py-20 bg-slate-50 dark:bg-slate-800">
+    <section className="py-20 bg-slate-50 dark:bg-slate-800">
       <div className="container mx-auto px-4">
         <motion.div
           ref={ref}
@@ -68,7 +81,7 @@ export default function Certifications() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-slate-800 dark:text-white">
-            <span className="text-emerald-600">Certifications & Tests</span>
+            <span className="text-emerald-600">Certifications</span>
           </h2>
 
           <motion.div
@@ -95,62 +108,12 @@ export default function Certifications() {
                         <CalendarIcon className="h-4 w-4 mr-1" />
                         <span>{cert.date}</span>
                       </div>
-                      <p className="text-slate-600 dark:text-slate-300 text-sm mb-4">{cert.description}</p>
-                      {cert.proofLink && (
-                        <motion.a
-                          href={cert.proofLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
-                          whileHover={{ x: 4 }}
-                        >
-                          View Proof
-                          <ExternalLinkIcon className="h-4 w-4" />
-                        </motion.a>
-                      )}
+                      <p className="text-slate-600 dark:text-slate-300 text-sm">{cert.description}</p>
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
-
-            <motion.div variants={itemVariants}>
-              <Card className="h-full hover:shadow-lg transition-shadow duration-300">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="bg-emerald-100 dark:bg-emerald-900 p-3 rounded-full mr-4">
-                      <AwardIcon className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg text-slate-800 dark:text-white">Common Internship Test</h3>
-                      <p className="text-slate-500 dark:text-slate-400 text-sm">Internship Studio</p>
-                    </div>
-                  </div>
-                  <div className="ml-[3.25rem]">
-                    <div className="flex items-center text-slate-500 dark:text-slate-400 text-sm mb-2">
-                      <CalendarIcon className="h-4 w-4 mr-1" />
-                      <span>December 2024</span>
-                    </div>
-                    <p className="text-slate-600 dark:text-slate-300 text-sm mb-2">
-                      Common Internship Test (CIT) conducted by Government of India
-                    </p>
-                    <p className="text-slate-600 dark:text-slate-300 text-sm font-semibold mb-4">
-                      Score: <span className="text-emerald-600 dark:text-emerald-400">60/100</span>
-                    </p>
-                    <motion.a
-                      href="https://drive.google.com/file/d/1Ck-fV85PPSYFJeEAGKrwd9RsPrnNCYK8/view?usp=drivesdk"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 text-sm font-medium hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
-                      whileHover={{ x: 4 }}
-                    >
-                      View Certificate
-                      <ExternalLinkIcon className="h-4 w-4" />
-                    </motion.a>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
           </motion.div>
         </motion.div>
       </div>
