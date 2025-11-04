@@ -94,72 +94,43 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <motion.div
-          className="flex items-center space-x-3 cursor-pointer"
-          onClick={scrollToTop}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex items-center justify-between gap-4">
+          {/* Brand Logo */}
           <motion.div
-            className="w-10 h-10 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg"
-            whileHover={{ rotate: 10 }}
-            transition={{ duration: 0.3 }}
+            className="flex items-center space-x-3 cursor-pointer flex-shrink-0"
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
-            <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M20 6h-8V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 10H8v-2h4v2z" />
-            </svg>
-          </motion.div>
-          <span className="text-lg font-bold text-white hidden md:block">
-            Sri Hari Kumar <span className="text-teal-400">S</span>
-          </span>
-        </motion.div>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center space-x-0.5">
-          {navItems.map((item, index) => {
-            const isActive = activeSection === item.href.replace("#", "")
-            return (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
-              >
-                <button
-                  onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium ${
-                    isActive
-                      ? "text-teal-400 bg-teal-500/10"
-                      : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                  }`}
-                >
-                  {item.name}
-                </button>
-              </motion.div>
-            )
-          })}
-
-          {/* More dropdown */}
-          <div className="relative group ml-2">
-            <motion.button
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+            <motion.div
+              className="w-10 h-10 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg"
+              whileHover={{ rotate: 10 }}
+              transition={{ duration: 0.3 }}
             >
-              More ↓
-            </motion.button>
-            <div className="absolute right-0 mt-2 w-48 bg-slate-900 rounded-lg shadow-2xl hidden group-hover:block z-50 border border-teal-500/20 overflow-hidden">
-              {moreItems.map((item, index) => {
-                const isActive = activeSection === item.href.replace("#", "")
-                return (
+              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 6h-8V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 10H8v-2h4v2z" />
+              </svg>
+            </motion.div>
+            <span className="text-lg font-bold text-white hidden sm:block whitespace-nowrap">
+              Sri Hari Kumar <span className="text-teal-400">S</span>
+            </span>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
+            {navItems.map((item, index) => {
+              const isActive = activeSection === item.href.replace("#", "")
+              return (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
                   <button
-                    key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className={`w-full px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
-                      index !== moreItems.length - 1 ? "border-b border-teal-500/10" : ""
-                    } ${
+                    className={`px-3 py-2 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
                       isActive
                         ? "text-teal-400 bg-teal-500/10"
                         : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
@@ -167,65 +138,99 @@ export default function Navbar() {
                   >
                     {item.name}
                   </button>
-                )
-              })}
+                </motion.div>
+              )
+            })}
+
+            {/* More dropdown */}
+            <div className="relative group">
+              <motion.button
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-slate-300 hover:text-teal-400 hover:bg-teal-500/10 transition-all duration-200 whitespace-nowrap"
+              >
+                More ↓
+              </motion.button>
+              <div className="absolute right-0 mt-2 w-48 bg-slate-900 rounded-lg shadow-2xl hidden group-hover:block z-50 border border-teal-500/20 overflow-hidden">
+                {moreItems.map((item, index) => {
+                  const isActive = activeSection === item.href.replace("#", "")
+                  return (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.href)}
+                      className={`w-full px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
+                        index !== moreItems.length - 1 ? "border-b border-teal-500/10" : ""
+                      } ${
+                        isActive
+                          ? "text-teal-400 bg-teal-500/10"
+                          : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                  )
+                })}
+              </div>
             </div>
-          </div>
+          </nav>
 
-          <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8 }}>
-            <Button
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk",
-                  "_blank",
-                )
-              }
-              className="ml-2 bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium text-sm"
+          {/* Right side buttons */}
+          <div className="flex items-center gap-2 ml-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8 }}
+              className="hidden lg:block"
             >
-              Resume
-            </Button>
-          </motion.div>
+              <Button
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk",
+                    "_blank",
+                  )
+                }
+                className="bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium text-sm"
+              >
+                Resume
+              </Button>
+            </motion.div>
 
-          <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9 }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.9 }}
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+              >
+                {mounted && theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+              </Button>
+            </motion.div>
+
+            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="ml-2 text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
             >
-              {mounted && theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
+              <AnimatePresence mode="wait">
+                {mobileMenuOpen ? (
+                  <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} exit={{ rotate: 90 }}>
+                    <XIcon className="h-5 w-5" />
+                  </motion.div>
+                ) : (
+                  <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} exit={{ rotate: -90 }}>
+                    <MenuIcon className="h-5 w-5" />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </Button>
-          </motion.div>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <div className="lg:hidden flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-          >
-            {mounted && theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-          </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-          >
-            <AnimatePresence mode="wait">
-              {mobileMenuOpen ? (
-                <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} exit={{ rotate: 90 }}>
-                  <XIcon className="h-5 w-5" />
-                </motion.div>
-              ) : (
-                <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} exit={{ rotate: -90 }}>
-                  <MenuIcon className="h-5 w-5" />
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </Button>
+          </div>
         </div>
       </div>
 
@@ -239,7 +244,7 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="container mx-auto px-4 py-4 flex flex-col space-y-1">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-1">
               {[...navItems, ...moreItems].map((item, index) => {
                 const isActive = activeSection === item.href.replace("#", "")
                 return (
