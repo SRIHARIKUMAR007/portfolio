@@ -1,4 +1,5 @@
-export default {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -6,7 +7,8 @@ export default {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["hebbkx1anhila5yf.public.blob.vercel-storage.com"],
     unoptimized: true,
   },
 }
+
+export default nextConfig

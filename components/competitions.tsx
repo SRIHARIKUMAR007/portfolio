@@ -53,7 +53,7 @@ export default function Competitions() {
   }
 
   return (
-    <section className="py-20 bg-slate-50 dark:bg-slate-800 relative overflow-hidden" id="competitions">
+    <section className="py-20 bg-slate-50 dark:bg-slate-800 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute top-20 left-20 w-80 h-80 bg-gradient-to-br from-amber-400/10 to-orange-500/10 rounded-full blur-3xl"
