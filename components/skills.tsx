@@ -5,7 +5,6 @@ import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
 import { CodeIcon, DatabaseIcon, LightbulbIcon } from "lucide-react"
 
-// Import enhanced animations
 import { FloatingElement } from "./enhanced-animations"
 import { TiltCard, Rotate3D } from "./3d-effects"
 
@@ -19,17 +18,17 @@ export default function Skills() {
     {
       name: "Programming Languages",
       icon: <CodeIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["HTML", "CSS", "Python", "MySQL", "Java"],
+      skills: ["Python", "HTML", "CSS", "JavaScript", "Java"],
     },
     {
-      name: "Tools and Technologies",
+      name: "Frameworks & Tools",
       icon: <DatabaseIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["DBMS", "MS Excel", "MS PowerPoint"],
+      skills: ["Flask", "NumPy", "scikit-learn", "Matplotlib", "DBMS", "MySQL", "MS Office 365"],
     },
     {
-      name: "Areas of Interest",
+      name: "Specializations",
       icon: <LightbulbIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["Artificial Intelligence", "Deep Learning"],
+      skills: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "Data Mining", "Stock Market Analysis"],
     },
   ]
 

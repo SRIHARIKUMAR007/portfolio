@@ -14,6 +14,16 @@ export default function Awards() {
 
   const awards = [
     {
+      title: "Best Researcher",
+      event: "7th International Conference on Engineering and Advancement in Technology 2025",
+      organization: "Malla Reddy College of Engineering",
+      date: "June 2025",
+      description:
+        "Recognized as Best Researcher for innovative and impactful research in AI-SDN integrated traffic intelligence systems.",
+      link: "https://drive.google.com/file/d/1O6boQMqa9TFPPizZuUezvHo_itI2tnpI/view?usp=drivesdk",
+      featured: true,
+    },
+    {
       title: "Best Paper Award",
       event: "7th International Conference on Engineering and Advancement in Technology 2025",
       organization: "Malla Reddy College of Engineering",
@@ -68,7 +78,7 @@ export default function Awards() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" id="awards">
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

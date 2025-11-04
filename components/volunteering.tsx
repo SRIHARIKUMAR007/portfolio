@@ -14,6 +14,16 @@ export default function Volunteering() {
 
   const volunteeringActivities = [
     {
+      title: "Placement Volunteer",
+      role: "Volunteer",
+      period: "Aug 2024 - May 2026",
+      organization: "SRM Institute",
+      location: "Chennai",
+      description:
+        "Supporting placement activities and assisting students in career development, resume building, and interview preparation.",
+      type: "Leadership",
+    },
+    {
       title: "TEXUS National Symposium",
       role: "Secretary",
       period: "Feb 2025 - Apr 2025",
