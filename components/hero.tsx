@@ -4,6 +4,7 @@ import { ArrowDownIcon, GithubIcon, LinkedinIcon, MailIcon, SparklesIcon } from 
 import Image from "next/image"
 import { Text3D, Button3D, Parallax3D } from "./3d-effects"
 
+// Enhanced motion variants with more dynamic animations
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -40,9 +41,22 @@ const imageVariants = {
     },
   },
   hover: {
-    scale: 1.05,
+    scale: 1.1,
+    rotate: 5,
     transition: {
       duration: 0.3,
+    },
+  },
+}
+
+const floatingVariants = {
+  animate: {
+    y: [-20, 20, -20],
+    rotate: [-5, 5, -5],
+    transition: {
+      duration: 6,
+      repeat: Number.POSITIVE_INFINITY,
+      ease: "easeInOut",
     },
   },
 }
@@ -50,14 +64,14 @@ const imageVariants = {
 export default function Hero() {
   return (
     <section className="py-20 md:py-32 relative overflow-hidden perspective-container">
-      {/* Subtle background animation */}
+      {/* Clean animated background elements without particles */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 rounded-full blur-3xl"
+          className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-3xl"
           animate={{
-            scale: [1, 1.2, 1],
+            scale: [1, 1.3, 1],
             rotate: [0, 180, 360],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.3, 0.6, 0.3],
           }}
           transition={{
             duration: 20,
@@ -66,11 +80,11 @@ export default function Hero() {
           }}
         />
         <motion.div
-          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-slate-400/10 to-slate-600/10 rounded-full blur-3xl"
+          className="absolute -bottom-40 -left-40 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 rounded-full blur-3xl"
           animate={{
             scale: [1.2, 1, 1.2],
             rotate: [360, 180, 0],
-            opacity: [0.2, 0.4, 0.2],
+            opacity: [0.4, 0.7, 0.4],
           }}
           transition={{
             duration: 25,
@@ -116,12 +130,12 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <Button3D className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3 rounded-lg shadow-lg">
+              <Button3D className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg shadow-lg">
                 <a href="#contact">Contact Me</a>
               </Button3D>
-              <Button3D className="bg-white/10 backdrop-blur-sm border border-teal-500/30 text-teal-400 px-6 py-3 rounded-lg">
+              <Button3D className="bg-white/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 px-6 py-3 rounded-lg">
                 <a
-                  href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk"
+                  href="https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -131,12 +145,13 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex gap-6 mt-8">
+              {/* Enhanced social links with more dynamic animations */}
               <motion.a
                 href="https://github.com/SRIHARIKUMAR007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={{ scale: 1.3, rotate: 15, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
@@ -147,7 +162,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={{ scale: 1.3, rotate: -15, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
@@ -156,7 +171,7 @@ export default function Hero() {
               <motion.a
                 href="mailto:sharisan2005@gmail.com"
                 className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.2, y: -2 }}
+                whileHover={{ scale: 1.3, rotate: 15, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
@@ -166,20 +181,28 @@ export default function Hero() {
           </motion.div>
 
           <Parallax3D className="md:w-1/2 flex justify-center" depth={40}>
-            <motion.div
-              className="relative w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-cyan-500/30 shadow-xl"
-              variants={imageVariants}
-              initial="hidden"
-              animate="visible"
-              whileHover="hover"
-            >
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-11-04%20at%2020.00.26_509dddb1-9LzuD1X29fzoaak2ZegxiEDfc63q7o.jpg"
-                alt="Sri Hari Kumar"
-                fill
-                className="object-cover"
-                priority
-              />
+            <motion.div className="relative" variants={floatingVariants} animate="animate">
+              <motion.div
+                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gradient-to-r from-cyan-500 to-blue-600 shadow-2xl image-3d"
+                variants={imageVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover="hover"
+                style={{
+                  background: "linear-gradient(45deg, #06b6d4, #3b82f6)",
+                  padding: "4px",
+                }}
+              >
+                <div className="w-full h-full rounded-full overflow-hidden bg-white">
+                  <Image
+                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/passport%20pic.jpg-AwUXoyHKqA3EjL3J7k7xwjY3wIa4vi.jpeg"
+                    alt="Sri Hari Kumar"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
+              </motion.div>
             </motion.div>
           </Parallax3D>
         </div>
