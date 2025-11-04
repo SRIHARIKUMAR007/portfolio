@@ -34,9 +34,10 @@ export default function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                Innovative and detail-driven IT undergraduate specializing in AI, machine learning, and data analytics.
-                Proven experience in healthcare data analysis, software testing, and real-time AI projects. Passionate
-                about building impactful tech solutions with a blend of research, leadership, and hands-on development.
+                I am an innovative and AI-enthusiastic IT undergraduate with strong knowledge of artificial intelligence
+                tools, machine learning libraries, and data processing techniques. I am passionate about leveraging
+                emerging technologies and AI frameworks to deliver efficient, scalable, and user-friendly solutions in
+                collaborative, result-oriented environments.
               </motion.p>
             </StaggerItem>
 
@@ -46,10 +47,10 @@ export default function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                Currently pursuing my B.Tech in Information Technology at SRM Institute of Science and Technology,
-                Ramapuram with a CGPA of 8.98/10, I have gained valuable experience through internships at Apollo
-                Hospitals and Aadhavan Institute of Allied Health and Research Council, where I applied my skills in
-                software testing, data analysis, and AI-assisted documentation.
+                Currently pursuing my B.Tech in Information Technology at SRM Institute of Science and Technology, I
+                have gained valuable experience through internships at Apollo Hospitals and Aadhavan Institute of Allied
+                Health and Research Council, where I applied my skills in software testing, data analysis, and
+                AI-assisted documentation.
               </motion.p>
             </StaggerItem>
 

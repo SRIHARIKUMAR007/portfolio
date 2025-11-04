@@ -14,15 +14,15 @@ export default function Education() {
 
   const educationItems = [
     {
-      institution: "SRM IST-Ramapuram",
+      institution: "SRM Institute of Science and Technology",
       degree: "B.Tech in Information Technology",
       period: "Sept 2022 - Present",
       location: "Chennai",
-      grade: "8.98/10",
+      grade: "9.10",
     },
     {
       institution: "Velankanni Matriculation Higher Secondary School",
-      degree: "12th · SSC (Computer Science)",
+      degree: "12th · SSC",
       period: "Jun 2021 - May 2022",
       location: "Chennai, Tamil Nadu",
       grade: "84.66%",

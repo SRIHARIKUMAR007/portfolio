@@ -68,6 +68,20 @@ export default function Certifications() {
       description:
         'Completed "Crash Course on Python" by Google on Coursera, acquiring essential Python programming skills for problem-solving and application development.',
     },
+    {
+      title: "AI Tools Workshop",
+      issuer: "Be10x",
+      date: "December 2024",
+      description:
+        "Attended AI Tools Workshop by Be10x, gaining hands-on exposure to popular AI tools for productivity, automation, and content generation.",
+    },
+    {
+      title: "AI Excel Automation",
+      issuer: "OfficeMasters",
+      date: "December 2024",
+      description:
+        "Attended AI Automation in Excel Workshop, learning techniques to integrate AI-driven tools and automation features for enhanced data analysis, reporting, and productivity in Excel.",
+    },
   ]
 
   const containerVariants = {
