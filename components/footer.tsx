@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GithubIcon, LinkedinIcon, MailIcon, ArrowUpIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Footer() {
@@ -22,17 +21,17 @@ export default function Footer() {
             </h2>
             <p className="text-slate-400 mt-2">AI & ML Specialist | Software Developer</p>
           </div>
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 text-sm">
             <motion.a
               href="https://github.com/SRIHARIKUMAR007"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-cyan-500 transition-colors"
               aria-label="GitHub"
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <GithubIcon className="h-6 w-6" />
+              GitHub
             </motion.a>
             <motion.a
               href="https://www.linkedin.com/in/sri-hari-kumar-s-244255250"
@@ -40,19 +39,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-cyan-500 transition-colors"
               aria-label="LinkedIn"
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <LinkedinIcon className="h-6 w-6" />
+              LinkedIn
             </motion.a>
             <motion.a
               href="mailto:sharisan2005@gmail.com"
               className="text-slate-400 hover:text-cyan-500 transition-colors"
               aria-label="Email"
-              whileHover={{ scale: 1.2 }}
+              whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <MailIcon className="h-6 w-6" />
+              Email
             </motion.a>
           </div>
         </div>
@@ -68,7 +67,7 @@ export default function Footer() {
               className="bg-slate-800 border-slate-700 hover:bg-slate-700 hover:text-cyan-500"
               aria-label="Scroll to top"
             >
-              <ArrowUpIcon className="h-5 w-5" />
+              ↑
             </Button>
           </motion.div>
         </div>

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -91,14 +90,17 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu Button */}
-        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-cyan-400 hover:text-cyan-300"
+        >
+          {mobileMenuOpen ? "✕" : "☰"}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur p-4 space-y-2">
+        <div className="md:hidden bg-slate-950/95 backdrop-blur p-4 space-y-2">
           {navItems.map((item) => (
             <button
               key={item.id}
