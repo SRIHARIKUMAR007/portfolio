@@ -3,9 +3,8 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
-import { CodeIcon, DatabaseIcon, LayoutIcon, FileTextIcon, GlobeIcon, LanguagesIcon } from "lucide-react"
+import { CodeIcon, DatabaseIcon, LightbulbIcon } from "lucide-react"
 
-// Import enhanced animations
 import { FloatingElement } from "./enhanced-animations"
 import { TiltCard, Rotate3D } from "./3d-effects"
 
@@ -19,32 +18,17 @@ export default function Skills() {
     {
       name: "Programming Languages",
       icon: <CodeIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["Python", "C", "Java"],
+      skills: ["Python", "HTML", "CSS", "JavaScript", "Java"],
     },
     {
-      name: "Database",
+      name: "Frameworks & Tools",
       icon: <DatabaseIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["MySQL", "DBMS"],
+      skills: ["Flask", "NumPy", "scikit-learn", "Matplotlib", "DBMS", "MySQL", "MS Office 365"],
     },
     {
-      name: "Web Development",
-      icon: <LayoutIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["HTML", "CSS"],
-    },
-    {
-      name: "Office Tools",
-      icon: <FileTextIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["MS Word", "MS PowerPoint", "MS Excel"],
-    },
-    {
-      name: "Languages",
-      icon: <LanguagesIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["Tamil (Native)", "English (Professional)", "German (Fundamental)"],
-    },
-    {
-      name: "Online Platforms",
-      icon: <GlobeIcon className="h-6 w-6 text-emerald-600" />,
-      skills: ["GitHub", "CodeChef", "HackerRank", "LeetCode"],
+      name: "Specializations",
+      icon: <LightbulbIcon className="h-6 w-6 text-emerald-600" />,
+      skills: ["Artificial Intelligence", "Machine Learning", "Deep Learning", "Data Mining", "Stock Market Analysis"],
     },
   ]
 

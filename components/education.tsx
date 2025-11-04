@@ -14,25 +14,25 @@ export default function Education() {
 
   const educationItems = [
     {
-      institution: "SRM Institute of Science and Technology",
+      institution: "SRM IST-Ramapuram",
       degree: "B.Tech in Information Technology",
       period: "Sept 2022 - Present",
       location: "Chennai",
-      grade: "9.10",
+      grade: "8.98/10",
     },
     {
       institution: "Velankanni Matriculation Higher Secondary School",
-      degree: "12th · SSC",
+      degree: "12th · SSC (Computer Science)",
       period: "Jun 2021 - May 2022",
       location: "Chennai, Tamil Nadu",
-      grade: "508/600",
+      grade: "84.66%",
     },
     {
       institution: "Velankanni Matriculation Higher Secondary School",
       degree: "10th · SSC",
       period: "Jun 2019 - Mar 2020",
       location: "Chennai, Tamil Nadu",
-      grade: "400/500",
+      grade: "80%",
     },
   ]
 
