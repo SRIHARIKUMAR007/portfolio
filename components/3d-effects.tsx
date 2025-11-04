@@ -203,7 +203,7 @@ export function Text3D({ children, className = "" }: { children: React.ReactNode
   )
 }
 
-// 3D Button Effect
+// Enhanced 3D Button Effect with click handler
 export function Button3D({
   children,
   onClick,

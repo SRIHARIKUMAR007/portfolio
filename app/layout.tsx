@@ -1,5 +1,4 @@
 import type React from "react"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Inter } from "next/font/google"
 import "./globals.css"
 import type { Metadata } from "next"
@@ -7,8 +6,8 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sri Hari Kumar - Portfolio",
-  description: "IT Professional specializing in AI and Data Analysis",
+  title: "Sri Hari Kumar S",
+  description: "Innovative IT undergraduate specializing in AI, machine learning, and data analytics",
     generator: 'v0.app'
 }
 
@@ -18,12 +17,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <meta name="theme-color" content="#0f172a" />
+      </head>
+      <body className={`${inter.className} bg-slate-950 text-slate-50`}>{children}</body>
     </html>
   )
 }
