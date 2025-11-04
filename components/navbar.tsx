@@ -1,295 +1,132 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { MoonIcon, SunIcon, MenuIcon, XIcon } from "lucide-react"
-import { useTheme } from "next-themes"
-import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    setMounted(true)
-
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-
-      const sections = [
-        "about",
-        "education",
-        "experience",
-        "projects",
-        "skills",
-        "publications",
-        "awards",
-        "patents",
-        "proposals",
-        "competitions",
-        "extracurriculars",
-        "contact",
-      ]
-      const currentSection = sections.find((section) => {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
-        }
-        return false
-      })
-      setActiveSection(currentSection || "")
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+      setMobileMenuOpen(false)
+    }
+  }
+
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Skills", href: "#skills" },
+    { label: "About", id: "about" },
+    { label: "Education", id: "education" },
+    { label: "Experience", id: "experience" },
+    { label: "Projects", id: "projects" },
+    { label: "Skills", id: "skills" },
+    { label: "Contact", id: "contact" },
   ]
 
   const moreItems = [
-    { name: "Publications", href: "#publications" },
-    { name: "Patents", href: "#patents" },
-    { name: "Proposals", href: "#proposals" },
-    { name: "Awards", href: "#awards" },
-    { name: "Competitions", href: "#competitions" },
-    { name: "Extracurriculars", href: "#extracurriculars" },
-    { name: "Contact", href: "#contact" },
+    { label: "Publications", id: "publications" },
+    { label: "Patents", id: "patents" },
+    { label: "Proposals", id: "proposals" },
+    { label: "Awards", id: "awards" },
+    { label: "Competitions", id: "competitions" },
+    { label: "Extracurriculars", id: "extracurriculars" },
   ]
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.querySelector(sectionId)
-    if (element) {
-      const navHeight = 80
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
-      window.scrollTo({
-        top: elementPosition - navHeight,
-        behavior: "smooth",
-      })
-    }
-    setMobileMenuOpen(false)
-  }
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
-
   return (
-    <motion.header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? "bg-slate-950/95 dark:bg-slate-950/95 backdrop-blur-md shadow-2xl border-b border-teal-500/10"
-          : "bg-slate-950/80 dark:bg-slate-950/80 backdrop-blur-sm"
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+    <nav
+      className={`fixed w-full top-0 z-50 transition-all ${scrolled ? "bg-slate-950/95 backdrop-blur" : "bg-transparent"}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between gap-4">
-          {/* Brand Logo */}
-          <motion.div
-            className="flex items-center space-x-3 cursor-pointer flex-shrink-0"
-            onClick={scrollToTop}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <motion.div
-              className="w-10 h-10 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg"
-              whileHover={{ rotate: 10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 6h-8V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 10H8v-2h4v2z" />
-              </svg>
-            </motion.div>
-            <span className="text-lg font-bold text-white hidden sm:block whitespace-nowrap">
-              Sri Hari Kumar <span className="text-teal-400">S</span>
-            </span>
-          </motion.div>
+      <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        {/* Logo */}
+        <button onClick={() => scrollToSection("home")} className="text-xl font-bold text-cyan-400 hover:text-cyan-300">
+          Sri Hari Kumar S
+        </button>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-            {navItems.map((item, index) => {
-              const isActive = activeSection === item.href.replace("#", "")
-              return (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-1">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="px-3 py-2 text-slate-300 hover:text-cyan-400 transition"
+            >
+              {item.label}
+            </button>
+          ))}
+
+          {/* More Dropdown */}
+          <div className="relative group">
+            <button className="px-3 py-2 text-slate-300 hover:text-cyan-400 transition">More</button>
+            <div className="absolute left-0 mt-0 w-48 bg-slate-900 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
+              {moreItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 hover:bg-slate-800 transition"
                 >
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className={`px-3 py-2 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                      isActive
-                        ? "text-teal-400 bg-teal-500/10"
-                        : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </motion.div>
-              )
-            })}
-
-            {/* More dropdown */}
-            <div className="relative group">
-              <motion.button
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-slate-300 hover:text-teal-400 hover:bg-teal-500/10 transition-all duration-200 whitespace-nowrap"
-              >
-                More ↓
-              </motion.button>
-              <div className="absolute right-0 mt-2 w-48 bg-slate-900 rounded-lg shadow-2xl hidden group-hover:block z-50 border border-teal-500/20 overflow-hidden">
-                {moreItems.map((item, index) => {
-                  const isActive = activeSection === item.href.replace("#", "")
-                  return (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className={`w-full px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
-                        index !== moreItems.length - 1 ? "border-b border-teal-500/10" : ""
-                      } ${
-                        isActive
-                          ? "text-teal-400 bg-teal-500/10"
-                          : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                      }`}
-                    >
-                      {item.name}
-                    </button>
-                  )
-                })}
-              </div>
+                  {item.label}
+                </button>
+              ))}
             </div>
-          </nav>
-
-          {/* Right side buttons */}
-          <div className="flex items-center gap-2 ml-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className="hidden lg:block"
-            >
-              <Button
-                onClick={() =>
-                  window.open(
-                    "https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk",
-                    "_blank",
-                  )
-                }
-                className="bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium text-sm"
-              >
-                Resume
-              </Button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9 }}
-            >
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-              >
-                {mounted && theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
-              </Button>
-            </motion.div>
-
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-            >
-              <AnimatePresence mode="wait">
-                {mobileMenuOpen ? (
-                  <motion.div key="close" initial={{ rotate: -90 }} animate={{ rotate: 0 }} exit={{ rotate: 90 }}>
-                    <XIcon className="h-5 w-5" />
-                  </motion.div>
-                ) : (
-                  <motion.div key="menu" initial={{ rotate: 90 }} animate={{ rotate: 0 }} exit={{ rotate: -90 }}>
-                    <MenuIcon className="h-5 w-5" />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </Button>
           </div>
+
+          <a
+            href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="ml-4 px-4 py-2 bg-cyan-600 hover:bg-cyan-500 rounded transition"
+          >
+            Resume
+          </a>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            className="lg:hidden bg-slate-900/95 backdrop-blur-md border-t border-teal-500/10 max-h-96 overflow-y-auto"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+      {mobileMenuOpen && (
+        <div className="md:hidden bg-slate-900/95 backdrop-blur p-4 space-y-2">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 transition"
+            >
+              {item.label}
+            </button>
+          ))}
+          {moreItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="block w-full text-left px-4 py-2 text-slate-300 hover:text-cyan-400 transition"
+            >
+              {item.label}
+            </button>
+          ))}
+          <a
+            href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full px-4 py-2 bg-cyan-600 hover:bg-cyan-500 rounded transition"
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-1">
-              {[...navItems, ...moreItems].map((item, index) => {
-                const isActive = activeSection === item.href.replace("#", "")
-                return (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.03 }}
-                  >
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className={`w-full px-4 py-3 rounded-lg text-left text-sm font-medium transition-all duration-200 ${
-                        isActive
-                          ? "text-teal-400 bg-teal-500/10"
-                          : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                      }`}
-                    >
-                      {item.name}
-                    </button>
-                  </motion.div>
-                )
-              })}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-2"
-              >
-                <Button
-                  onClick={() => {
-                    window.open(
-                      "https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk",
-                      "_blank",
-                    )
-                    setMobileMenuOpen(false)
-                  }}
-                  className="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium"
-                >
-                  Download Resume
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            Resume
+          </a>
+        </div>
+      )}
+    </nav>
   )
 }
