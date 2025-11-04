@@ -50,13 +50,13 @@ export default function Navbar() {
 
   const navItems = [
     { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
     { name: "Experience", href: "#experience" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
   ]
 
   const moreItems = [
+    { name: "Education", href: "#education" },
     { name: "Publications", href: "#publications" },
     { name: "Patents", href: "#patents" },
     { name: "Proposals", href: "#proposals" },
@@ -95,76 +95,65 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center justify-between gap-8">
           {/* Brand Logo */}
           <motion.div
-            className="flex items-center space-x-3 cursor-pointer flex-shrink-0"
+            className="flex items-center gap-2 cursor-pointer flex-shrink-0 min-w-fit"
             onClick={scrollToTop}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="w-10 h-10 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg"
+              className="w-9 h-9 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg flex-shrink-0"
               whileHover={{ rotate: 10 }}
               transition={{ duration: 0.3 }}
             >
-              <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M20 6h-8V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 10H8v-2h4v2z" />
               </svg>
             </motion.div>
-            <span className="text-lg font-bold text-white hidden sm:block whitespace-nowrap">
+            <span className="text-sm font-bold text-white whitespace-nowrap">
               Sri Hari Kumar <span className="text-teal-400">S</span>
             </span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-center">
-            {navItems.map((item, index) => {
+          <nav className="hidden lg:flex items-center gap-2">
+            {navItems.map((item) => {
               const isActive = activeSection === item.href.replace("#", "")
               return (
-                <motion.div
+                <button
                   key={item.name}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.05 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-3 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-all duration-200 ${
+                    isActive
+                      ? "text-teal-400 bg-teal-500/10"
+                      : "text-slate-400 hover:text-teal-400 hover:bg-teal-500/10"
+                  }`}
                 >
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className={`px-3 py-2 rounded-md text-xs sm:text-sm font-medium whitespace-nowrap transition-all duration-200 ${
-                      isActive
-                        ? "text-teal-400 bg-teal-500/10"
-                        : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                    }`}
-                  >
-                    {item.name}
-                  </button>
-                </motion.div>
+                  {item.name}
+                </button>
               )
             })}
 
             {/* More dropdown */}
             <div className="relative group">
-              <motion.button
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="px-3 py-2 rounded-md text-xs sm:text-sm font-medium text-slate-300 hover:text-teal-400 hover:bg-teal-500/10 transition-all duration-200 whitespace-nowrap"
-              >
-                More ↓
-              </motion.button>
-              <div className="absolute right-0 mt-2 w-48 bg-slate-900 rounded-lg shadow-2xl hidden group-hover:block z-50 border border-teal-500/20 overflow-hidden">
+              <button className="px-3 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-teal-400 hover:bg-teal-500/10 transition-all duration-200 whitespace-nowrap">
+                More
+              </button>
+              <div className="absolute left-0 mt-1 w-48 bg-slate-900 rounded-lg shadow-2xl hidden group-hover:flex flex-col z-50 border border-teal-500/20 overflow-hidden">
                 {moreItems.map((item, index) => {
                   const isActive = activeSection === item.href.replace("#", "")
                   return (
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.href)}
-                      className={`w-full px-4 py-3 text-left text-sm font-medium transition-all duration-200 ${
+                      className={`px-4 py-2 text-left text-sm font-medium transition-all duration-200 whitespace-nowrap ${
                         index !== moreItems.length - 1 ? "border-b border-teal-500/10" : ""
                       } ${
                         isActive
                           ? "text-teal-400 bg-teal-500/10"
-                          : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+                          : "text-slate-400 hover:text-teal-400 hover:bg-teal-500/10"
                       }`}
                     >
                       {item.name}
@@ -177,12 +166,7 @@ export default function Navbar() {
 
           {/* Right side buttons */}
           <div className="flex items-center gap-2 ml-auto">
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8 }}
-              className="hidden lg:block"
-            >
+            <motion.div className="hidden lg:block">
               <Button
                 onClick={() =>
                   window.open(
@@ -190,22 +174,18 @@ export default function Navbar() {
                     "_blank",
                   )
                 }
-                className="bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium text-sm"
+                className="bg-gradient-to-r from-teal-500 to-teal-600 text-white border-none hover:from-teal-600 hover:to-teal-700 shadow-lg font-medium text-sm px-4"
               >
                 Resume
               </Button>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9 }}
-            >
+            <motion.div>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+                className="text-slate-400 hover:text-teal-400 hover:bg-teal-500/10"
               >
                 {mounted && theme === "dark" ? <SunIcon className="h-5 w-5" /> : <MoonIcon className="h-5 w-5" />}
               </Button>
@@ -216,7 +196,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
+              className="lg:hidden text-slate-400 hover:text-teal-400 hover:bg-teal-500/10"
             >
               <AnimatePresence mode="wait">
                 {mobileMenuOpen ? (
@@ -238,41 +218,30 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            className="lg:hidden bg-slate-900/95 backdrop-blur-md border-t border-teal-500/10 max-h-96 overflow-y-auto"
+            className="lg:hidden bg-slate-900/95 backdrop-blur-md border-t border-teal-500/10"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col space-y-1">
-              {[...navItems, ...moreItems].map((item, index) => {
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col gap-1">
+              {[...navItems, ...moreItems].map((item) => {
                 const isActive = activeSection === item.href.replace("#", "")
                 return (
-                  <motion.div
+                  <button
                     key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.03 }}
+                    onClick={() => scrollToSection(item.href)}
+                    className={`w-full px-4 py-3 rounded-lg text-left text-sm font-medium transition-all duration-200 ${
+                      isActive
+                        ? "text-teal-400 bg-teal-500/10"
+                        : "text-slate-400 hover:text-teal-400 hover:bg-teal-500/10"
+                    }`}
                   >
-                    <button
-                      onClick={() => scrollToSection(item.href)}
-                      className={`w-full px-4 py-3 rounded-lg text-left text-sm font-medium transition-all duration-200 ${
-                        isActive
-                          ? "text-teal-400 bg-teal-500/10"
-                          : "text-slate-300 hover:text-teal-400 hover:bg-teal-500/10"
-                      }`}
-                    >
-                      {item.name}
-                    </button>
-                  </motion.div>
+                    {item.name}
+                  </button>
                 )
               })}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="pt-2"
-              >
+              <motion.div className="pt-2">
                 <Button
                   onClick={() => {
                     window.open(

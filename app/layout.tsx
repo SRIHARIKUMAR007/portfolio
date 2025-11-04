@@ -9,9 +9,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Sri Hari Kumar S",
   description: "Innovative IT undergraduate specializing in AI, machine learning, and data analytics",
-  icons: {
-    icon: "/favicon.ico",
-  },
     generator: 'v0.app'
 }
 
