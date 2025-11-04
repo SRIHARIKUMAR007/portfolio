@@ -9,17 +9,13 @@ import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import Certifications from "@/components/certifications"
 import Awards from "@/components/awards"
-import Patents from "@/components/patents"
-import Proposals from "@/components/proposals"
 import Volunteering from "@/components/volunteering"
 import ConferencesWorkshops from "@/components/conferences-workshops"
 import Publications from "@/components/publications"
-import Competitions from "@/components/competitions"
-import Extracurriculars from "@/components/extracurriculars"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 dark:from-slate-900 dark:via-cyan-900 dark:to-blue-900 relative overflow-hidden">
       <Navbar />
       <Hero />
       <About />
@@ -28,14 +24,10 @@ export default function Home() {
       <Projects />
       <Skills />
       <Certifications />
-      <Patents />
-      <Proposals />
       <Awards />
       <Publications />
       <ConferencesWorkshops />
       <Volunteering />
-      <Competitions />
-      <Extracurriculars />
       <Contact />
       <Footer />
     </main>

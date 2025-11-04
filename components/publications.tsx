@@ -16,27 +16,15 @@ export default function Publications() {
   const publications = [
     {
       title: "OpenFlow-SDN Integrated ANPR Traffic Intelligence System with AI-Driven Real-Time Vehicle Monitoring",
-      conference: "Lecture Notes in Network and Systems, Springer Book Series",
-      date: "September 2025",
-      location: "Springer - Scopus Indexed",
-      isbn: "TBD",
-      proceedingNumber: "SPRINGER-2025",
+      conference: "7th International Conference on Engineering and Advancement in Technology",
+      date: "June 2025",
+      location: "Hyderabad, India",
+      isbn: "978-81-983500-6-0",
+      proceedingNumber: "ICEAT-2025-P-147",
       description:
-        "Published paper on intelligent traffic management system using OpenFlow-SDN for real-time vehicle monitoring achieving 95% detection accuracy in Springer's prestigious book series.",
+        "Developed an intelligent traffic management system using OpenFlow-SDN for real-time vehicle monitoring and traffic optimization with AI-driven ANPR technology achieving 95% detection accuracy.",
       proceedingsLink: "https://drive.google.com/file/d/1HCPDL2K_0VvnDnQ0vinq9oDG_tbTGlQ6/view?usp=sharing",
       featured: true,
-    },
-    {
-      title: "Aligning Intent and Impact: An Integrated Model for Educational Reform Sustainability",
-      conference: "Journal of Techniques - Sciences – Methods",
-      date: "August 2025",
-      location: "UGC-CARE (Group II) - Elsevier Scopus",
-      isbn: "TBD",
-      proceedingNumber: "JOURNAL-2025",
-      description:
-        "Published research on educational reform sustainability models, integrating intent and impact assessment frameworks for long-term institutional effectiveness.",
-      proceedingsLink: "https://drive.google.com/file/d/1GSbMkkA7muefjuoFP80-Y1zuNFMehQNn/view?usp=drivesdk",
-      featured: false,
     },
     {
       title: "FlaskElect: A Python Based Online Polling System",
@@ -88,7 +76,7 @@ export default function Publications() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" id="publications">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Enhanced animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
