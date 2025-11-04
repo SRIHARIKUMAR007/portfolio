@@ -7,9 +7,12 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sri Hari Kumar S - Portfolio",
+  title: "Sri Hari Kumar S",
   description: "Innovative IT undergraduate specializing in AI, machine learning, and data analytics",
-    generator: 'v0.dev'
+  icons: {
+    icon: "/favicon.ico",
+  },
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -20,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>
