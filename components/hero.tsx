@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
+import { ArrowDownIcon, GithubIcon, LinkedinIcon, MailIcon, SparklesIcon } from "lucide-react"
 import Image from "next/image"
 import { Text3D, Button3D, Parallax3D } from "./3d-effects"
 
@@ -89,6 +90,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
+                <SparklesIcon className="h-4 w-4 text-cyan-500" />
                 <span className="text-sm text-slate-600 dark:text-slate-300">AI & ML Specialist</span>
               </motion.div>
 
@@ -127,6 +129,40 @@ export default function Hero() {
                 </a>
               </Button3D>
             </motion.div>
+
+            <motion.div variants={itemVariants} className="flex gap-6 mt-8">
+              <motion.a
+                href="https://github.com/SRIHARIKUMAR007"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <GithubIcon className="h-6 w-6" />
+              </motion.a>
+              <motion.a
+                href="https://www.linkedin.com/in/sri-hari-kumar-s-244255250"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <LinkedinIcon className="h-6 w-6" />
+              </motion.a>
+              <motion.a
+                href="mailto:sharisan2005@gmail.com"
+                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
+                whileHover={{ scale: 1.2, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400 }}
+              >
+                <MailIcon className="h-6 w-6" />
+              </motion.a>
+            </motion.div>
           </motion.div>
 
           <Parallax3D className="md:w-1/2 flex justify-center" depth={40}>
@@ -138,7 +174,7 @@ export default function Hero() {
               whileHover="hover"
             >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-11-04%20at%2020.00.26_509dddb1-9LzuD1X29fzoaak2ZegxiEDfc63q7o.jpg"
+                src="/images/design-mode/WhatsApp%20Image%202025-11-04%20at%2020.00.26_509dddb1.jpg"
                 alt="Sri Hari Kumar"
                 fill
                 className="object-cover"
@@ -156,7 +192,9 @@ export default function Hero() {
         >
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
             <Button3D className="bg-transparent text-slate-600 dark:text-slate-300 p-3 rounded-full border border-cyan-500/30">
-              <a href="#about">↓</a>
+              <a href="#about">
+                <ArrowDownIcon className="h-6 w-6" />
+              </a>
             </Button3D>
           </motion.div>
         </motion.div>
