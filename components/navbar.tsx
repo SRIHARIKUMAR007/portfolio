@@ -103,15 +103,6 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <motion.div
-              className="w-9 h-9 bg-gradient-to-r from-teal-400 to-teal-600 rounded-lg flex items-center justify-center shadow-lg flex-shrink-0"
-              whileHover={{ rotate: 10 }}
-              transition={{ duration: 0.3 }}
-            >
-              <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 6h-8V4c0-1.1-.9-2-2-2s-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 10H8v-2h4v2z" />
-              </svg>
-            </motion.div>
             <span className="text-sm font-bold text-white whitespace-nowrap">
               Sri Hari Kumar <span className="text-teal-400">S</span>
             </span>
