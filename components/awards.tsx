@@ -78,7 +78,7 @@ export default function Awards() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden" id="awards">
+    <section className="py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

@@ -116,12 +116,12 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <Button3D className="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white px-6 py-3 rounded-lg shadow-lg">
+              <Button3D className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg shadow-lg">
                 <a href="#contact">Contact Me</a>
               </Button3D>
-              <Button3D className="bg-white/10 backdrop-blur-sm border border-teal-500/30 text-teal-400 px-6 py-3 rounded-lg">
+              <Button3D className="bg-white/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 px-6 py-3 rounded-lg">
                 <a
-                  href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUXQrj8e/view?usp=drivesdk"
+                  href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUQrj8e/view?usp=drivesdk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -174,7 +174,7 @@ export default function Hero() {
               whileHover="hover"
             >
               <Image
-                src="/images/design-mode/WhatsApp%20Image%202025-11-04%20at%2020.00.26_509dddb1.jpg"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-11-04%20at%2020.00.26_509dddb1-9LzuD1X29fzoaak2ZegxiEDfc63q7o.jpg"
                 alt="Sri Hari Kumar"
                 fill
                 className="object-cover"
