@@ -3,9 +3,8 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
-import { CalendarIcon, FileTextIcon, ExternalLinkIcon } from "lucide-react"
+import { CalendarIcon, FileTextIcon } from "lucide-react"
 import { TiltCard } from "./3d-effects"
-import { Button } from "@/components/ui/button"
 
 export default function Patents() {
   const [ref, inView] = useInView({
@@ -22,18 +21,6 @@ export default function Patents() {
       location: "Gunidy, Chennai",
       description:
         "Developed a comprehensive framework integrating AI-based security protocols for cloud systems supporting human-machine collaboration in aerospace applications with enhanced trust mechanisms.",
-      proofLink: "https://drive.google.com/file/d/1NywJlKZnOiOVp3LSJsPrvFoY4skTTRDw/view?usp=drivesdk",
-      featured: true,
-    },
-    {
-      title: "Advanced Machine Learning Pipeline for Real-Time Data Analytics",
-      status: "PENDING",
-      applicationNumber: "IN202541089355",
-      date: "Nov 2025",
-      location: "Chennai",
-      description:
-        "Innovative machine learning pipeline architecture designed for processing and analyzing large-scale datasets in real-time with optimized performance metrics and scalability.",
-      proofLink: "https://drive.google.com/file/d/1NywJlKZnOiOVp3LSJsPrvFoY4skTTRDw/view?usp=drivesdk",
       featured: true,
     },
   ]
@@ -96,7 +83,7 @@ export default function Patents() {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -145,19 +132,7 @@ export default function Patents() {
                         <span>{patent.date}</span>
                       </div>
 
-                      <p className="text-slate-600 dark:text-slate-300 mb-6">{patent.description}</p>
-
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => window.open(patent.proofLink, "_blank")}
-                          className="bg-gradient-to-r from-indigo-500 to-blue-600 text-white border-none hover:from-indigo-600 hover:to-blue-700 shadow-lg flex items-center gap-2"
-                        >
-                          <ExternalLinkIcon className="h-4 w-4" />
-                          View Patent Proof
-                        </Button>
-                      </motion.div>
+                      <p className="text-slate-600 dark:text-slate-300">{patent.description}</p>
                     </CardContent>
                   </Card>
                 </TiltCard>

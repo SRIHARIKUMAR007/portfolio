@@ -35,7 +35,7 @@ export default function Publications() {
       proceedingNumber: "JOURNAL-2025",
       description:
         "Published research on educational reform sustainability models, integrating intent and impact assessment frameworks for long-term institutional effectiveness.",
-      proceedingsLink: "https://drive.google.com/file/d/1GSbMkkA7muefjuoFP80-Y1zuNFMehQNn/view?usp=drivesdk",
+      proceedingsLink: "#",
       featured: false,
     },
     {

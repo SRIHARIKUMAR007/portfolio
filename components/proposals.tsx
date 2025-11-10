@@ -3,9 +3,8 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Card, CardContent } from "@/components/ui/card"
-import { CalendarIcon, LightbulbIcon, ExternalLinkIcon } from "lucide-react"
+import { CalendarIcon, LightbulbIcon } from "lucide-react"
 import { TiltCard } from "./3d-effects"
-import { Button } from "@/components/ui/button"
 
 export default function Proposals() {
   const [ref, inView] = useInView({
@@ -21,17 +20,6 @@ export default function Proposals() {
       date: "Oct 2025",
       description:
         "Innovative wearable technology designed to provide tactile notifications and assistance for deaf-blind individuals, enhancing independence and safety through smart vibration patterns and haptic feedback.",
-      proofLink: "https://drive.google.com/file/d/1fiTpWLDcFUtrlspklv3Ojh-Yhns7g8B4/view?usp=drivesdk",
-      featured: true,
-    },
-    {
-      title: "IoT-Based Environmental Monitoring System for Smart Cities",
-      status: "Under Review",
-      organization: "National Innovation Council",
-      date: "Nov 2025",
-      description:
-        "Comprehensive IoT solution for real-time environmental monitoring across urban areas, enabling data-driven decision-making for sustainable city management and pollution control.",
-      proofLink: "https://drive.google.com/file/d/1fiTpWLDcFUtrlspklv3Ojh-Yhns7g8B4/view?usp=drivesdk",
       featured: true,
     },
   ]
@@ -94,7 +82,7 @@ export default function Proposals() {
           </motion.h2>
 
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             animate={inView ? "visible" : "hidden"}
@@ -138,19 +126,7 @@ export default function Proposals() {
                         <span>{proposal.date}</span>
                       </div>
 
-                      <p className="text-slate-600 dark:text-slate-300 mb-6">{proposal.description}</p>
-
-                      <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => window.open(proposal.proofLink, "_blank")}
-                          className="bg-gradient-to-r from-rose-500 to-pink-600 text-white border-none hover:from-rose-600 hover:to-pink-700 shadow-lg flex items-center gap-2"
-                        >
-                          <ExternalLinkIcon className="h-4 w-4" />
-                          View Proposal Proof
-                        </Button>
-                      </motion.div>
+                      <p className="text-slate-600 dark:text-slate-300">{proposal.description}</p>
                     </CardContent>
                   </Card>
                 </TiltCard>
