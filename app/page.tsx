@@ -19,7 +19,7 @@ import Extracurriculars from "@/components/extracurriculars"
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-cyan-50 to-blue-50 dark:from-slate-900 dark:via-cyan-900 dark:to-blue-900 relative overflow-hidden">
+    <main className="min-h-screen bg-slate-950">
       <Navbar />
       <Hero />
       <About />
