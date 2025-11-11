@@ -1,6 +1,5 @@
 "use client"
 import { motion } from "framer-motion"
-import { ArrowDownIcon, GithubIcon, LinkedinIcon, MailIcon, SparklesIcon } from "lucide-react"
 import Image from "next/image"
 import { Text3D, Button3D, Parallax3D } from "./3d-effects"
 
@@ -104,11 +103,11 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
               >
-                <SparklesIcon className="h-4 w-4 text-cyan-500" />
-                <span className="text-sm text-slate-600 dark:text-slate-300">AI & ML Specialist</span>
+                <span className="text-sm text-cyan-400">✨</span>
+                <span className="text-sm text-slate-300">AI & ML Specialist</span>
               </motion.div>
 
-              <Text3D className="text-4xl md:text-6xl font-bold text-slate-800 dark:text-white mb-4">
+              <Text3D className="text-4xl md:text-6xl font-bold text-white mb-4">
                 Hi, I'm{" "}
                 <motion.span
                   className="bg-gradient-to-r from-cyan-500 to-blue-600 bg-clip-text text-transparent"
@@ -120,11 +119,11 @@ export default function Hero() {
               </Text3D>
             </motion.div>
 
-            <motion.h2 variants={itemVariants} className="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-6">
+            <motion.h2 variants={itemVariants} className="text-xl md:text-2xl text-slate-300 mb-6">
               Innovative IT undergraduate specializing in AI, machine learning, and data analytics
             </motion.h2>
 
-            <motion.p variants={itemVariants} className="text-slate-600 dark:text-slate-400 mb-8 max-w-lg">
+            <motion.p variants={itemVariants} className="text-slate-400 mb-8 max-w-lg">
               Results-driven and detail-oriented IT undergraduate specializing in AI, machine learning, and data
               analytics. Eager to contribute technical skills and learn from experienced professionals.
             </motion.p>
@@ -133,9 +132,9 @@ export default function Hero() {
               <Button3D className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white px-6 py-3 rounded-lg shadow-lg">
                 <a href="#contact">Contact Me</a>
               </Button3D>
-              <Button3D className="bg-white/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-600 dark:text-cyan-400 px-6 py-3 rounded-lg">
+              <Button3D className="bg-white/10 backdrop-blur-sm border border-cyan-500/30 text-cyan-400 px-6 py-3 rounded-lg">
                 <a
-                  href="https://drive.google.com/file/d/1i5BEC6NIwR6UB-HEJKSo53-j9zpAL0li/view?usp=drive_link"
+                  href="https://drive.google.com/file/d/1aS0GTdwZj3CVD1oT_3lfjANExUQrj8e/view?usp=drivesdk"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -145,37 +144,36 @@ export default function Hero() {
             </motion.div>
 
             <motion.div variants={itemVariants} className="flex gap-6 mt-8">
-              {/* Enhanced social links with more dynamic animations */}
               <motion.a
                 href="https://github.com/SRIHARIKUMAR007"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.3, rotate: 15, y: -5 }}
+                className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+                whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <GithubIcon className="h-6 w-6" />
+                GitHub
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/sri-hari-kumar-s-244255250"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.3, rotate: -15, y: -5 }}
+                className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+                whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <LinkedinIcon className="h-6 w-6" />
+                LinkedIn
               </motion.a>
               <motion.a
                 href="mailto:sharisan2005@gmail.com"
-                className="text-slate-600 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 transition-colors"
-                whileHover={{ scale: 1.3, rotate: 15, y: -5 }}
+                className="text-slate-300 hover:text-cyan-400 transition-colors text-sm font-medium"
+                whileHover={{ scale: 1.2, y: -5 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400 }}
               >
-                <MailIcon className="h-6 w-6" />
+                Email
               </motion.a>
             </motion.div>
           </motion.div>
@@ -214,9 +212,9 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.5 }}
         >
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}>
-            <Button3D className="bg-transparent text-slate-600 dark:text-slate-300 p-3 rounded-full border border-cyan-500/30">
-              <a href="#about">
-                <ArrowDownIcon className="h-6 w-6" />
+            <Button3D className="bg-transparent text-slate-300 p-3 rounded-full border border-cyan-500/30">
+              <a href="#about" className="text-xl">
+                ↓
               </a>
             </Button3D>
           </motion.div>
